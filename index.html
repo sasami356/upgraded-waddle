@@ -1,0 +1,103 @@
+
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>答え</title>
+
+ <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #282c34;  /* ゲーム画面の背景色 */
+            color: #61dafb;  /* テキストの色 */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #fff;  /* ラベルの色 */
+        }
+
+        input {
+            padding: 8px;
+            font-size: 1em;
+        }
+
+        button {
+	    margin-top:20px;
+	    margin-bottom;15px;
+            padding: 8px 20px;
+            font-size: 1.2em;
+            background-color: #61dafb;  /* ボタンの背景色 */
+            color: #282c34;  /* ボタンのテキスト色 */
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a5f5;  /* ホバー時の背景色 */
+        }
+
+        #image-container {
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+    </style>
+
+
+    <script>
+        function checkPassword() {
+            var passwordInput = document.getElementById("password").value;
+            var encryptedPassword = encrypt(passwordInput);
+
+            if (encryptedPassword === "ZHJlYW0=") {
+                displayImage("png/omedeto.png");
+
+            } else {
+                displayImage("png/zannen.png");
+            }
+        }
+
+        function encrypt(input) {
+            return btoa(input);
+        }
+
+        function displayImage(imageUrl) {
+	    console.log("Image URL:",imageUrl);
+            var imageContainer = document.getElementById("image-container");
+            imageContainer.innerHTML = "<img src='" + imageUrl + "' alt='Image'>";
+        }
+    </script>
+
+    <style>
+        /* ここに必要なCSSスタイルを追加 */
+    </style>
+
+</head>
+
+<body>
+    <label for="password">合言葉は？</label>
+    <input type="password" id="password">
+    <button onclick="checkPassword()">決定</button>
+
+    <div id="image-container"></div>
+</body>
+</html>
+
+
+
